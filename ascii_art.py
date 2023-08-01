@@ -6,21 +6,21 @@ cap = cv.VideoCapture(0)
 # следующая таблица acii https://voltiq.ru/wp-content/uploads/ascii-code-table.jpg
 # если стоит флаг False, то используются только те символы 
 # которые записаны в переменную symbol, справо налево уменьшается яркость пикселя
-full_symbol = False
+full_symbol = True
 symbol = '01'
 
 # если флаг color установлен в True, то цвет символа будет 
 # такой как цвет пикселя в исходной изображении.
 # если флаг False, то используется цвет, который указан в 
 # в переменной color_text. Цвет кодируется в формате Blue, Green, Red
-color = True
+color = False
 color_text = (255,255,255)
 
 
 # чем меньше pixel_size, тем больше детализация на выходе, но 
 # при слишком маленьком значении возможно падение fps на выходе
 # рекомендуемые значения от 5 до 25
-pixel_size = 15
+pixel_size = 5
 
 # размер выходного изображения
 # при больших значениях данных переменных и маленьком значении pixel_size
@@ -36,7 +36,6 @@ while True:
     picture = cv.GaussianBlur(picture,(25,25),1)
     
     output = cv.resize(output, (int(picture.shape[1]),int(picture.shape[0])))
-    #cv.imshow('input', picture)
     picture_gray = cv.cvtColor(picture, cv.COLOR_BGR2GRAY)
     font = cv.FONT_HERSHEY_PLAIN 
 
